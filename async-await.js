@@ -21,3 +21,28 @@ async function fetchPhotos() {
 fetchPhotos();
 
 // https://www.youtube.com/watch?v=PoRJizFvM7s
+
+
+// ANOTHER EXAMPLE
+
+const urlPhotos = "http://jsonplaceholder.typicode.com/photos";
+const urlPosts = "http://jsonplaceholder.typicode.com/posts";
+
+async function getData() {
+  try {
+    const [photosResponse, postsResponse] = await Promise.all([
+      axios.get(urlPhotos),
+      axios.get(urlPosts)
+    ]);
+  
+    const photos = photosResponse.data;
+    const posts = postsResponse.data;
+    console.log(posts, photos);
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+getData();
+
+console.log("POSTS", posts);
